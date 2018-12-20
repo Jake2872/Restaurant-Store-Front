@@ -1,0 +1,259 @@
+body {
+	
+    background-color: rgb(145, 122, 122);
+    color: rgb(197, 172, 172);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+	margin: 0; padding: 0;
+	
+	/*gets rid of touch highlight on ios/android*/
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-tap-highlight-color: transparent;
+}
+
+
+#page__wrapper {
+
+ background-color: rgb(119, 35, 35);
+ padding: 0 0 5% 0;
+ margin-right: 0px;
+ margin-left: 0px;
+
+}
+
+
+@media screen and (min-width: 944px) and (max-width: 2000px) {
+	
+	#page__wrapper {
+		
+	   margin-right: calc(0px + (400 - 0) * (100vw - 944px) / (2000 - 944));
+	   margin-left: calc(0px + (400 - 0) * (100vw - 944px) / (2000 - 944)); 
+}  } 
+
+@media screen and (min-width: 2000px) {
+	
+	#page__wrapper {
+		
+		margin-right: 400px;
+		margin-left: 400px; 
+}    } 
+
+
+
+header {
+background: navy 
+url("https://www.dropbox.com/s/kfl7dmlhw0hbkt1/1400Header.jpg?raw=1")
+no-repeat  30% 70%;
+}
+
+@media screen and (min-width: 1500px) {
+	
+	header { /*makes sure the background header image covers it at all widths*/
+		background-size: calc(1100px + (5000 - 1100) * (100vw - 1500px) / (5000 - 1500)) auto;
+	}
+}
+
+
+@media screen and (max-width: 700px) {
+	
+	header {
+		background-size: calc(500px + (700 - 500) * (100vw - 300px) / (700 - 300)) auto;
+	}
+}
+
+
+h1 {
+    margin: 0 auto 50px 10px;
+    color: rgb(211, 212, 212);
+    letter-spacing: .1em;  
+    position: relative;
+    top: 5px;
+    padding: 20px;
+}
+
+
+#heading__wrapper {
+	
+    min-width: 215px;
+	max-width: 275px;
+	top: 20px;
+    margin: auto;
+    position: relative;
+    background: rgb(35, 40, 87);
+    opacity: .7;    
+    border-top-left-radius:  260%;
+    border-top-right-radius: 260%;
+    box-shadow: 0px 0px 15px 10px rgb(37, 96, 163);
+	font-size: 1em;
+	text-align: center;
+	
+}
+
+#LogoPlusSign, #LogoLetter-A {
+    color: rgb(255, 45, 45);
+}
+
+nav {
+ 
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	font-size: 2em;
+    background-color: rgb(73, 73, 82);
+    background: 	
+    linear-gradient(195deg, rgb(73, 73, 82), rgb(138, 100, 85), rgb(60, 60, 83));
+	padding: 20px 0;
+  
+  }
+
+a { text-decoration: none; }
+
+.nav__option {
+	
+	width: 20px;
+	background-color: rgb(119, 35, 35);
+	color: rgb(177, 147, 147);
+	margin: 0 20px;
+	padding: 5px 20px;;
+	border-radius: 15px;
+}
+
+
+
+@media screen and (max-width: 575px) {
+	
+	nav {
+		font-size: 1em;
+		padding: 20px 0;
+	}
+	
+	.nav__option {
+	margin: 0;
+	padding: 5px 15px;
+		
+	}
+	
+	#item-wrapper--our-story {
+		margin: auto 3% auto 3%;
+	}
+}
+
+
+
+.nav__option:hover {
+	 background-color: rgb(48, 68, 94);
+}
+
+/*non-grid flex fallback*/
+#food-card__container {
+	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 5% 0; 
+}
+
+	
+	.food__item {  
+		
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+    background-color: rgb(24, 24, 92);
+	padding: 0 20px;
+	width: 270px;
+	margin: 2%;
+	border-radius: 25px;
+}
+
+/*browsers supporting grid*/ 
+
+@supports( display: grid ) {   /*document this process for future pages that need fallback*/
+
+
+#food-card__container {
+	
+	display: grid;
+	grid-template-rows: repeat(auto-fill);
+	grid-template-columns: repeat(auto-fill, minmax(279px, 1fr) );
+	grid-gap: 40px;
+	margin: 5% 0; 
+	padding: 0 5%;
+}
+	
+	/*Must be within @support grid. Otherwise non-grid browsers distort card too soon...*/
+@media  screen and (max-width: 550px) {
+		
+		#food-card__container {
+			padding-right: 40px;
+			padding-left: 40px;
+		}
+	}
+	
+	.food__item {  
+   
+	margin: 0;
+	width: auto; 
+		
+	}
+
+} /*end of supports grid*/
+    
+
+.food-image__wrapper {
+    width: 207px;
+    height: 207px;
+	border-radius: 15px;
+    transition: transform .3s;
+	overflow: hidden;
+
+}
+
+.food-item__image {
+	transition: transform .3s;
+}
+
+.food-item__image:hover {  transform: scale(1.25);    }
+
+
+.PriceTagClass {  font-size: 1.2em;   }
+
+.button__add-cart {
+    width: 110px;
+    height: 7px;
+    background-color: rgb(28, 51, 155);
+    background: rgb(177, 166, 166) 
+    url("https://www.dropbox.com/s/slq3uktdompqjk7/addcart-Sprite-Background.png?raw=1")
+    no-repeat
+    -49px -9px;
+    text-indent: -9999px;
+	outline: none;  
+	border: 3px solid rgb(99, 77, 77);
+	border-style: outset;
+	margin-bottom: 20px;
+	padding: 15px;
+	padding-top: 22px;
+	border-radius: 10px;
+}
+
+
+.button__add-cart:active {
+    border-style: inset;
+	
+}
+
+.button__add-cart:focus {
+    background-position: -220px -9px;
+}
+
+
+
+
+
+
+
+
+       
